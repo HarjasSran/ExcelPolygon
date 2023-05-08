@@ -1,5 +1,4 @@
 import pandas as pd
-import openpyxl
 
 
 def point_in_polygon(x, y, poly):
