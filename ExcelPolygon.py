@@ -41,10 +41,10 @@ for i, row in df.iterrows():
     # Extract the point coordinates and polygon vertices from the row
     x, y = row['Point X'], row['Point Y']
 
-    # Iterate over each polygon in the row and check if the point is inside
+    # Iterate over each polygon in the row and check if the point is inside, J in range of number of polygons + 1
     is_inside = 'None'
     for j in range(1,5):
-        poly = [(geofence.loc[j-1,f'Vertex {k} X'], geofence.loc[j-1,f'Vertex {k} Y']) for k in range (1,5)] # All verticies of the polygon
+        poly = [(geofence.loc[j-1,f'Vertex {k} X'], geofence.loc[j-1,f'Vertex {k} Y']) for k in range (1,6)] # All verticies of the polygon until k which is max number of coordintaes +1
         
         #using the function, check if the current x, y points are inside the current polygon
         if point_in_polygon(x, y, poly):
